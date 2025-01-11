@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Set the Requester to the currently logged in user for new Wish Item records. Users can change the field value.</description>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages>Set the Requester to the currently logged in user for new Wish Item records. Users can change the field value.</messages>
+        <name>Wish Item Set Requester</name>
+        <order/>
+        <script><![CDATA[Exercise
+Exercise: Use Stashed Changes
+In this exercise, you will create and stash some application changes. You will apply the stash to another branch, then delete the stash.
+
+Prepare to Use Stashed Changes
+In this section of the exercise, you will create a branch for work on the user experience for the Wish List application. Later in this exercise, you will make application changes that should have been applied to this branch.
+
+Visual representation of adding the UserExperience branch.
+If the Wish List application is not open in Studio from the previous exercise, open it now.
+Create a branch.
+Open the Source Control menu and select the Create Branch menu item.
+Configure the branch.
+Branch Name:
+UserExperience
+Click the Create Branch button.
+When the Create Branch dialog indicates success, click the Close button.
+Update the Wish List Application
+In this section of the exercise, you will create a branch and add a feature to the Wish List application. The feature sets a default value for the Requester field for a new record to the currently logged in user.
+
+Visual representation of adding the AddPurchaseDetails branch.
+Create a branch called AddPurchaseDetails.
+Create a Client Script.
+Click the Create Application File link.
+In the Filter... field, enter the text Client or select Client Development from the categories in the left hand pane.
+Select Client Script in the middle pane as the file type, then click the Create button.
+Configure the Client Script.
+Name:
+Wish Item Set Requester
+Table:
+Wish Item [x_<your_company_code>_wish_list_wish_item]
+UI Type:
+All
+Type:
+onLoad
+Description:
+Set the Requester to the currently logged in user for new Wish Item records. Users can change the field value.
+Replace the contents of the Script field with this script:
+function onLoad() {
+  
+  //Check if the form is for a new record.  If it is a new record, 
+  //set the Requester value to the currently logged in user.
+  
+  if(g_form.isNewRecord()){
+    g_form.setValue('requester',g_user.userID);
+  }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-11 16:06:40</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e17f039583c7d210f3f066d0deaad312</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Wish Item Set Requester</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Wish Listt" source="x_snc_wish_listt">5f0487158387d210f3f066d0deaad337</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Wish Listt">5f0487158387d210f3f066d0deaad337</sys_scope>
+        <sys_update_name>sys_script_client_e17f039583c7d210f3f066d0deaad312</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-11 16:12:47</sys_updated_on>
+        <table>x_snc_wish_listt_wish_item</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
